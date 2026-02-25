@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/juego/css/juego.css">
+    <title>Juego de Cartas</title>
+</head>
+<body>
+	<audio id="musicaJuego" loop autoplay>
+	  <source src="/sesionRegistro/assets/musica.mp3" type="audio/mpeg">
+	  Tu navegador no soporta audio.
+	</audio>
+
+
+    <!-- id_usuario -->
+    <input type="hidden" name="id_usuario" id="id_usuario" th:value="${id_usuario}">
+    <!-- fin id_usuario -->
+
+    <header>
+        <div id="foto">
+            <img id="planeta" src="/sesionRegistro/assets/logoCarta.png" alt="Planeta">
+        </div>
+        <div id="nombre">
+            <img id="saturn" src="/sesionRegistro/assets/blackCard.png" width="200" height="50" alt="Saturn">
+        </div>
+        <div id="saldo-container">
+			<div id="saldo">Puntos: <span th:text="${usuario.puntos}">0</span></div>
+        </div>
+        <div id="ajustes">
+            <img src="/sesionRegistro/assets/engranaje.png" alt="Ajustes" height="50px" width="50px" id="openModal">
+            <div id="dropdownMenu" class="dropdown-menu">
+                <img id="informacion" src="/sesionRegistro/assets/interrogacion.png" alt="" height="30px" width="30px">
+            </div>
+        </div>
+        <div id="usuario">
+			<label id="nu" th:text="${usuario.username}"></label>
+
+            <img src="/sesionRegistro/assets/hombre2.png" height="50" width="50" alt="Usuario">
+        </div>
+		<div id="modalHistoria" class="modal-informacion">
+		    <div class="modal-content">
+		        <span id="cerrarModal" class="close">&times;</span>
+		        <h2>NOS ATACAN</h2>
+		        <p><strong>Las ordas de la orden oscura atacan el reino</strong></p>
+		        <p><strong>Debes de hacer todo lo posible para derrotarlas</strong></p>
+		        <p><strong>Los heroes del guante blanco estan dispuestos a darlo todo, derrota a la orden oscura y hazte con la victoria</strong></p>
+		    </div>
+		</div>
+
+        <div id="modalInformacion" class="modal-informacion">
+            <div class="modal-content">
+                <span id="cerrarModal" class="close">&times;</span>
+                <h2>Cómo Jugar</h2>
+                <p><strong>Para jugar:</strong> Presiona el botón de jugar y aparecerán 6 cartas, 3 para cada jugador.</p>
+                <p><strong>El juego consiste en:</strong> Cada carta tuya lucha contra la del rival en su misma posición. Gana la de mayor valor.</p>
+                <p><strong>Para ganar:</strong> Si ganas al menos 2 batallas, se suman los valores de las cartas ganadas a tu marcador de puntos.</p>
+            </div>
+        </div>
+    </header>
+
+	
+
+
+		<div id="cartas-container">
+			<div id="barra-nivel-container">
+	    <span id="nivel-texto">Nivel 1</span>
+	    <div id="barra-experiencia">
+	        <div id="progreso-experiencia"></div>
+	    </div>
+	</div>
+
+		  <div class="zona-cartas">
+		    <div class="label">HEROE DEL GUANTE BLANCO</div>
+		    <div class="cartas-row" id="cartas-jugador"></div>
+		  </div>
+
+		  <div class="zona-cartas">
+		    <div class="label">ORDA DE LA MANO OSCURA</div>
+		    <div class="cartas-row" id="cartas-rival"></div>
+		    
+		  </div>
+	 <!-- Botones debajo de las cartas del rival -->
+    <div id="botones-juego" style="text-align:center; margin-top:10px;">
+        <img id="jugar" src="/sesionRegistro/assets/play2.png" alt="Jugar" style="cursor:pointer; width:80px; height:120px;">
+        <button id="btnBatalla" class="btn" style="display:none;">Batalla</button>
+    </div>
+</div>
+		</div>
+
+
+
+  
+</div>
+
+<div id="zona-robo" style="position: absolute; right: 20px; top: 150px; display: flex; flex-direction: column; align-items: center; gap: 20px;">
+
+  <!-- Carta Héroe -->
+  <div id="robo-heroe" class="robo-carta" style="text-align: center;">
+    <img id="carta-robo-heroe" src="/sesionRegistro/assets/reverso.png" alt="Carta a robar" width="80" height="120" style="margin-bottom: 10px;">
+    <br>
+    <button id="btnRobarHeroe" class="btnRobarCarta">Robar carta Héroe</button>
+  </div>
+
+  <!-- Carta Magia -->
+  <div id="robo-magia" class="robo-carta" style="text-align: center;">
+    <img id="carta-robo-magia" src="/sesionRegistro/assets/reverso.png" alt="Carta a robar" width="80" height="120" style="margin-bottom: 10px;">
+    <br>
+    <button id="btnRobarMagia" class="btnRobarCarta">Robar carta Magia</button>
+  </div>
+
+  <!-- Zona de acciones persistente -->
+  <div id="zona-acciones">
+      <h3>Acciones</h3>
+
+      <!-- Carta robada -->
+      <div id="carta-robada-visual"></div>
+
+      <!-- Magia usada -->
+      <div id="magia-visual"></div>
+
+      <!-- Resultado de batalla -->
+      <div id="resultado-accion"></div>
+
+      <!-- Mensajes adicionales -->
+      <div id="mensajes-acciones"></div>
+  </div>
+
+
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	
+	<script th:inline="javascript">
+	    const USER_NIVEL = [[${usuario.nivel} ?: 1]];
+	    const USER_EXPERIENCIA = [[${usuario.experiencia} ?: 0]];
+	    const USER_PUNTOS = [[${usuario.puntos} ?: 0]];
+	</script>
+
+>
+
+	<script src="/juego/js/juego.js"></script>
+
+
+
+>
+
+
+
+</body>
+</html>

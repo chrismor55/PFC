@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/sesionRegistro/css/index.css">
+    </head>
+    <body>
+   
+
+        </header>
+        <div id="logo">
+            <div id="foto">
+                <img id="planeta" src="/sesionRegistro/assets/logoCarta.png" height="250" width="250" >
+            </div>
+            <div id="nombre">
+                <img id="saturn" src="/sesionRegistro/assets/blackCard.png" width="200" height="50">
+            </div>
+        </div>
+        <div id="login">
+
+            <div id="du">
+                <img src="/sesionRegistro/assets/persona.png" height="35px" width="35px">
+
+                <input type="text" id="usuario" placeholder="Usuario">
+            </div>
+            
+            <br>
+
+            <div id="dp">
+                <img src="/sesionRegistro/assets/descarga-removebg-preview (5).png" alt=""  height="35px" width="35px">
+            
+                <input type="password" placeholder="contraseña" id="password">
+            </div>
+
+            <br>
+            
+            <div id="iniciar">
+                <button type="submit" id="boton" style="color: white;" onclick="submitGet()">Iniciar Sesion</button>
+            </div>
+            <br>
+            <div id="enlaces">
+                <a href="" style="color: rgb(255, 255, 255);" id="forgot" >Forgot password</a>
+
+				<a href="/registroFormulario" style="color: rgb(255, 255, 255);" id="cuenta">No tienes cuenta?</a>
+
+            </div>
+        </div>
+        <footer id="footer">
+
+        </footer>
+
+        <div id="modalError" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span id="modalClose" class="close">&times;</span>
+                <p id="modalMessage"></p>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <script src="/sesionRegistro/js/index.js"></script>
+    </body>
+</html>

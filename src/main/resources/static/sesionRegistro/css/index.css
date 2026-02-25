@@ -1,0 +1,325 @@
+body{
+    background-image:url(/sesionRegistro/assets/fondoSesion.png);
+    background-attachment: fixed;
+    background-position: 47%;
+    background-size: 110%;
+}
+
+
+
+/* Contenedor principal centrado y con efecto épico */
+#logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 10px;
+    border: 5px solid transparent;
+    border-radius: 15px;
+}
+
+
+
+/* Estilo para la foto, centrado y con sombra épica */
+#foto {
+    margin-top: -3%;
+    text-shadow: 
+      -2px -2px 2px black,
+      2px -2px 2px black,
+      -2px 2px 2px black,
+      2px 2px 2px black;
+    animation: fadeInZoom 3s ease-out forwards;
+}
+
+/* Animación de entrada para la foto */
+@keyframes fadeInZoom {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Estilo para el nombre, centrado con sombra */
+#nombre {
+    margin-top: 10px;
+    text-shadow: 
+      -2px -2px 2px black,
+      2px -2px 2px black,
+      -2px 2px 2px black,
+      2px 2px 2px black;
+    animation: namePulse 4s infinite;
+}
+
+/* Animación pulsante para el nombre */
+@keyframes namePulse {
+    0% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.3);
+    }
+    100% {
+        filter: brightness(1);
+    }
+}
+#planeta {
+    height: 250px;
+    width: 250px;
+    filter: hue-rotate(0deg);
+    animation: ledEffect 3s infinite linear;
+}
+#saturn {
+    width: 100%;
+    filter: hue-rotate(0deg);
+    animation: ledEffect 3s infinite linear;
+}
+
+/* Efecto de cambio de color LED */
+@keyframes ledEffect {
+    0% { filter: drop-shadow(0 0 10px #dbd408); }  /* Amarillo */
+    25% { filter: drop-shadow(0 0 10px #ff00ff); } /* Rosa */
+    50% { filter: drop-shadow(0 0 10px #8000ff); } /* Morado */
+    75% { filter: drop-shadow(0 0 10px #00ffff); } /* Azul */
+    100% { filter: drop-shadow(0 0 10px #dbd408); } /* Vuelve a amarillo */
+}
+
+
+
+
+#login{
+    background-image: url(/sesionRegistro/assets/fondo\ registro.jpg);
+    background-position: 100%;
+    background-size: 100%;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 10px;
+    border-color: #790A7B;
+    justify-content: center;
+    border-width: 5px;
+    width: 20%;
+    height: 20%;
+    margin-left: 39%;
+    margin-top: 3%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    justify-content: space-between;
+    animation: login-border-animation 6s infinite alternate;
+}
+
+/* Animación sutil para el borde del login */
+@keyframes login-border-animation {
+    0% {
+        border-color: #e327e6;
+        box-shadow: 0 0 8px #e327e6;
+    }
+    50% {
+        border-color: #991490;
+        box-shadow: 0 0 8px #991490;
+    }
+    100% {
+        border-color: #790A7B;
+        box-shadow: 0 0 8px #790A7B;
+    }
+}
+#du{
+    
+    display: flex;
+    margin-bottom: 2%;
+    margin-left: 10%;
+}
+#usuario{
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 10px;
+    border-color: #790A7B;
+}
+#de{
+    display: flex;
+    margin-left: 10%;
+    margin-bottom: 2%;
+}
+#email{
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 10px;
+    border-color: #790A7B;
+}
+#dp{
+    display: flex;
+    margin-left: 10%;
+}
+#password{
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 10px;
+    border-color: #790A7B;
+}
+
+#iniciar{
+    margin-left: 24%; 
+}
+
+#boton{
+    width: 150px;
+    height: 30px;
+    background-color: #2C2C2C;
+    border-radius: 10px;
+}
+
+#enlaces{
+    display: flex;
+    
+}
+#forgot{
+    margin-left: 5%;
+}
+#cuenta{
+    margin-left: 15%;
+}
+
+/* Estilo base para el modal */
+.modal {
+    display: none; /* Por defecto oculto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;  /* Centrado vertical */
+    justify-content: center; /* Centrado horizontal */
+    z-index: 1000;
+}
+
+/* Cuando el modal está activo, se muestra */
+.modal.active {
+    display: flex;
+}
+
+/* Contenedor del contenido del modal */
+.modal .modal-content {
+    background-color: #8B008B; /* Tono morado rojizo */
+    color: white;
+    padding: 30px;
+    top: 45%;
+    left: 30%;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    text-align: justify;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    animation: aparecer 0.5s ease;
+}
+
+/* Estilo del mensaje de error */
+#modalMessage {
+    font-size: 1.2rem;
+    margin: 20px 0;
+}
+
+/* Botón para cerrar el modal */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+}
+
+/* Animación para la aparición del modal */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media query para dispositivos móviles */
+@media screen and (max-width: 768px) {
+    /* Reducción del tamaño de la imagen del planeta */
+    #planeta {
+        width: 150px;
+        height: 150px;
+    }
+
+    /* Ajustar el tamaño del logo */
+    #logo {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        margin-top: 20px;
+    }
+
+    /* Ajustar el tamaño del nombre */
+    #saturn {
+        width: 80%;
+        height: auto;
+    }
+
+    /* Redimensionar el contenedor de login */
+    #login {
+        width: 80%;
+        height: auto;
+        margin-left: 10%;
+        margin-top: 5%;
+        padding: 10px;
+    }
+
+    /* Ajustes en los campos de input */
+    #usuario, #password {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    /* Ajustar el tamaño de los botones */
+    #boton {
+        width: 100%;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    /* Ajuste de los enlaces */
+    #enlaces {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #forgot, #cuenta {
+        margin: 10px 0;
+    }
+
+    /* Ajustar el modal para móviles */
+    .modal .modal-content {
+        width: 90%;
+        padding: 20px;
+        top: 20%;
+    }
+
+    /* Cambiar el tamaño del icono en el input */
+    #du img, #dp img {
+        width: 25px;
+        height: 25px;
+        margin-right: 10px;
+    }
+
+    /* Ajustar márgenes en el input */
+    #usuario, #password {
+        padding-left: 40px;
+    }
+
+    /* Hacer más espacioso el borde de los botones */
+    #boton {
+        font-size: 1.2rem;
+        height: 40px;
+    }
+}

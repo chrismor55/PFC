@@ -1,0 +1,971 @@
+
+
+
+body {
+    background-image: url(/sesionRegistro/assets/fondoJuego.png);
+     background-attachment: fixed;
+    background-position: 47%;
+    background-size: 110%;
+}
+
+.content {
+    z-index: 1;
+    text-align: center;
+    padding: 20px;
+}
+
+header {
+    margin-top: -15px;
+    margin-left: -15px;
+    height: 15%;
+    width: 100%; /* Ocupa todo el ancho */
+    padding: 15px 50px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(/sesionRegistro/assets/header2.png);
+    background-size: cover;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+    z-index: 5; /* Asegura que esté sobre el contenido */
+    display: flex; /* Coloca los elementos en una fila */
+    align-items: center; /* Centra los elementos verticalmente */
+    justify-content: space-between; /* Separa los elementos horizontalmente */
+}
+
+nav {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px 50px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+    list-style: none;
+    display: flex; /* Coloca los elementos de la lista en una fila */
+    gap: 20px; /* Espaciado entre elementos */
+    margin: 0; /* Elimina márgenes */
+    padding: 0; /* Elimina padding */
+}
+
+nav ul li {
+    color: #FFFFFF;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li:hover {
+    color: #5EB3E9; /* Color azul claro en hover */
+}
+
+#foto img {
+    height: 80px;
+    transition: transform 0.3s;
+}
+
+#foto img:hover {
+    transform: scale(1.1);
+}
+
+#nombre {
+    margin-left: 100px;
+}
+
+#saturn {
+    background-color: #6A0F9A;
+    padding: 10px;
+    border: 6px solid transparent;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    border: 6px solid rgba(0, 0, 0, 0.3);
+}
+
+#saturn::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    border-radius: 13px;
+    background: linear-gradient(135deg, rgba(138, 43, 226, 0.8), rgba(173, 216, 230, 0.8));
+    z-index: -1;
+    transition: background 0.3s;
+}
+
+#saturn:hover::before {
+    background: linear-gradient(135deg, rgba(30, 144, 255, 0.8), rgba(0, 255, 255, 0.8));
+}
+
+#saturn:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+#saldo-container {
+    margin-left: -25%;
+    margin-right: -30%;
+    display: flex;
+    align-items: center;
+    background-color: #6a0dad; /* Color morado */
+    padding: 10px;
+    border-radius: 8px;
+    width: 125px;
+    color: white;
+}
+
+#moneda1{
+    margin-bottom: -15px;
+    margin-left: -28px;
+    margin-right: -20px;
+    margin-top: -15%;
+    height: 50px; /* Ajusta la altura */
+    width: 90px;  /* Ajusta el ancho */
+}
+
+#saldo {
+    flex: 1;
+    font-weight: bold;
+}
+
+
+
+#ajustes{
+    margin-right: -20%;
+}
+#informacion{
+    margin-left: 30%;
+    margin-top: 20%;
+    
+}
+#BlancoNegro {
+    margin: -15px 25px;
+    }
+
+/* Estilo del modal */
+.modal-informacion {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Contenido del modal */
+.modal-content {
+    background-color: #6A0DAD; /* Morado espacial */
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    position: relative;
+    animation: aparecer 0.5s ease;
+}
+
+/* Animación de aparición */
+@keyframes aparecer {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Botón de cerrar */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+}
+
+/* Títulos y párrafos */
+.modal-content h2 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.modal-content strong {
+    color: #FFD700; /* Amarillo brillante */
+}
+
+.dropdown-menu {
+    margin-top: 3%;
+    margin-left: 77.5%;
+    display: none; /* Ocultar el menú por defecto */
+    position: absolute;
+    top: 60px; /* Ajusta según el tamaño de la imagen */
+    left: 0;
+    background-color:#6A0F9A;
+    border: 1px solid rgba(0, 255, 255, 0.8);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    width: 100px; /* Ancho del menú */
+    padding: 10px;
+    flex-direction: column; /* Para que los botones estén en columna */
+}
+
+/* Estilos de la imagen del engranaje */
+#openModal {
+    transition: transform 0.3s; /* Efecto de transición para la rotación */
+}
+
+/* Rotación de la imagen al pasar el ratón */
+#openModal:hover {
+    transform: rotate(45deg); /* Rota la imagen 45 grados */
+}
+
+
+/* Estilo de los botones dentro del menú */
+#dropdownMenu button {
+    width: 100%;
+    margin: 5px 0;
+}
+
+/* Estilo cuando el menú es visible */
+.show {
+    display: flex;
+    
+    display: block; /* Mostrar el menú cuando tiene la clase 'show' */
+}
+#usuario {
+	margin-right: 5%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: bold;
+	color: white;
+}
+
+#usuario img {
+    height: 50px;
+    border-radius: 50%;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#usuario img:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.5);
+}
+
+#consola {
+    flex-direction: row;
+    display: flex;
+    background-size: cover;
+    background-position: center;
+    width: 100vw; /* Garantiza que ocupe todo el ancho de la ventana */
+    height: 20vh; /* Usa vh para una altura proporcional */
+    position: fixed;
+    bottom: 0;
+    left: 0; /* Asegura que el contenedor empiece desde el borde izquierdo */
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    margin-bottom: 10%;
+    overflow: hidden; /* Evita contenido desbordado */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho/alto */
+}
+
+
+#botones-juego {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+#jugar {
+    height: 75%;
+    width: auto;
+    transition: transform 0.3s;
+	  cursor: pointer;
+	
+}
+
+#jugar:hover {
+    transform: scale(1.1);
+}
+
+
+/* Estilo del fondo del modal */
+.modal {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro con opacidad */
+    z-index: 9999;  
+    transition: opacity 0.3s ease; /* Transición suave cuando aparece */
+}
+
+/* Estilo del contenido del modal */
+#modal-content {
+    background-color: #6A0DAD; /* Morado espacial */
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    position: relative;
+    animation: aparecer 0.5s ease;
+}
+
+input[type="number"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+button {
+    background-color: #4CAF50; /* Verde para los botones */
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049; /* Verde más oscuro cuando se hace hover */
+}
+
+button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+
+/* Cuando el modal está activo, se muestra */
+.modal.active {
+    display: flex;
+}
+
+/* Contenedor del contenido del modal */
+.modal .modal-content {
+    background-color: #8B008B; /* Tono morado rojizo */
+    color: white;
+    padding: 30px;
+    top: 45%;
+    left: 30%;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    text-align: justify;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    animation: aparecer 0.5s ease;
+}
+
+/* Estilo del mensaje de error */
+#modalMessage {
+    font-size: 1.2rem;
+    margin: 20px 0;
+}
+
+/* Botón para cerrar el modal */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+}
+
+/* Animación para la aparición del modal */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/*juego*/
+
+
+
+
+#rival-label{
+	margin-left: -350px;
+	margin-top: 250px;
+}
+#jugador-label{
+	margin-left: -350px;
+	top: 50px;
+}
+
+.cartas-row {
+  display: flex;
+  justify-content: center; /* centra las cartas horizontalmente */
+  gap: 15px; /* espacio entre cartas */
+}
+
+.label {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: #333;
+}
+
+
+@keyframes aparecer {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+.btn-futurista {
+    background: linear-gradient(135deg, #00d4ff, #0094ff);
+    border: none;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.btn-futurista:hover {
+    background: linear-gradient(135deg, #0094ff, #00d4ff);
+    box-shadow: 0px 0px 25px cyan;
+    transform: scale(1.05);
+}
+
+#juego {
+  margin-top: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Contenedor que mantiene las 6 cartas */
+#cartas-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+.zona-cartas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.label {
+  font-size: 26px;
+  font-weight: bold;
+  color: #00d4ff;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
+}
+
+.cartas-row {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+}
+
+
+/* Cada carta */
+.carta {
+  width: 120px;
+  height: 160px;
+  border-radius: 14px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.7);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Para cartas jugador */
+.carta:hover {
+  transform: translateY(-8px) scale(1.05);
+}
+
+.carta.jugador {
+    box-shadow: 0 0 15px #00d4ff;
+}
+
+/* Para cartas rival */
+.carta.rival {
+    box-shadow: 0 0 15px #ff4d4d;
+}
+
+/* =========================
+   ANIMACIÓN BATALLA
+========================= */
+@keyframes choque {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); box-shadow: 0 0 30px gold; }
+  100% { transform: scale(1); }
+}
+
+.carta.ganadora {
+  animation: choque 0.6s ease;
+  box-shadow: 0 0 40px gold;
+  z-index: 10;
+}
+
+.carta.perdedora {
+  opacity: 0.5;
+  filter: grayscale(80%);
+  transform: scale(0.9);
+}
+
+/* Botón batalla */
+#btnBatalla {
+    display: none;
+    padding: 14px 45px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 18px;
+    border: none;
+    background: linear-gradient(135deg, #00d4ff, #007bff);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.7);
+    transition: transform 0.3s ease;
+}
+
+#btnBatalla:hover {
+    transform: scale(1.08);
+}
+
+#modalResultado {
+    position: fixed;
+    top: 50%;
+    left: 10%; /* para que esté centrado a la izquierda */
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 100;
+    width: 300px; /* ancho fijo */
+    height: 150px; /* alto fijo */
+    border-radius: 10px;
+}
+#modalResultado.show {
+    visibility: visible;
+    opacity: 1;
+}
+#modalResultado .modal-content {
+    background: purple;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+#modalContenido {
+    background: #121212;
+    border-radius: 20px;
+    padding: 30px 50px;
+    color: #121212;
+    text-align: center;
+    box-shadow: 0 0 30px #00d4ff;
+    font-size: 24px;
+    font-weight: bold;
+    user-select: none;
+}
+
+#modalContenido button {
+    margin-top: 20px;
+    padding: 10px 30px;
+    font-size: 18px;
+    background: #00d4ff;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 15px #00d4ff;
+    transition: background 0.3s ease;
+}
+
+#modalContenido button:hover {
+    background: #0094ff;
+}
+#btnRobarHeroe,
+#btnRobarMagia {
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+  padding: 10px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Hover */
+#btnRobarHeroe:hover,
+#btnRobarMagia:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+		.btnRobarCarta {
+		  margin-top: 10px;
+		  padding: 8px 14px;
+		  border-radius: 10px;
+		  background: linear-gradient(135deg, #ff9800, #ff5722);
+		  color: white;
+		  border: none;
+		  cursor: pointer;
+		}
+
+		.btnRobarCarta:hover {
+		  transform: scale(1.05);
+		}
+		/* Efectos para el resultado de batalla */
+		.carta.perdedora {
+		  opacity: 0.6;
+		  filter: grayscale(80%);
+		  transform: scale(0.9);
+		}
+
+		.carta.empate {
+		  box-shadow: 0 0 25px 5px #888;
+		  transform: scale(1.05);
+		}
+
+		/* Carta seleccionable al robar */
+		.carta-seleccionable {
+		  border: 3px dashed orange;
+		  transform: scale(1.1);
+		  transition: transform 0.2s ease, border 0.2s ease;
+		  cursor: pointer;
+		}
+		.carta-seleccionable:hover {
+		  border: 3px solid gold;
+		  transform: scale(1.15);
+		}
+
+		/* Suavizar la aparición del modal de resultado */
+		#modalResultado.show {
+		  animation: fadeIn 0.4s ease forwards;
+		}
+		@keyframes fadeIn {
+		  from { opacity: 0; transform: scale(0.8); }
+		  to { opacity: 1; transform: scale(1); }
+		}
+		.poder {
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black;
+}
+		.carta-seleccionable {
+		  outline: 3px solid yellow;
+		  cursor: pointer;
+		  transform: scale(1.1);
+		  transition: transform 0.2s ease;
+		}
+
+/* ===== CONTENEDOR NIVEL ===== */
+#barra-nivel-container {
+    width: 260px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+        z-index: 9999;
+
+}
+
+/* CONTENEDOR GENERAL */
+#barra-nivel-container {
+    width: 300px;
+    margin: 15px auto;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+/* TEXTO NIVEL */
+#nivel-texto {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+/* BARRA BASE */
+#barra-experiencia {
+    width: 100%;
+    height: 20px;
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #666;
+}
+
+/* PROGRESO */
+#progreso-experiencia {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    transition: width 0.4s ease;
+}
+.poder {
+  color: white;
+  font-weight: bold;
+}
+
+.poder-derrotado {
+  color: white;
+  opacity: 0.6;
+}
+.carta-derrotada {
+  filter: grayscale(100%);
+  opacity: 0.6;
+}
+/* ===== ZONA DE ACCIONES / CARTA ROBADA ===== */
+#zona-acciones {
+    position: fixed;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 260px;
+    min-height: 400px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
+    border: 2px solid #00d4ff;
+    z-index: 9000;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow-y: auto; /* Permite scroll si hay muchas acciones */
+}
+
+/* Título */
+#zona-acciones h3 {
+    color: #00d4ff;
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Cartas y magia */
+#carta-robada-visual img,
+#magia-visual img {
+    width: 180px;
+    height: auto;
+    border-radius: 14px;
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.8);
+    animation: aparecerCarta 0.4s ease;
+}
+
+/* Resultado de acción */
+#resultado-accion {
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFD700;
+    text-align: center;
+}
+
+/* Mensajes adicionales */
+#mensajes-acciones {
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Ajustes en móviles */
+@media screen and (max-width: 768px) {
+    #zona-acciones {
+        right: 10px;
+        width: 180px;
+        top: auto;
+        bottom: 10px;
+        transform: none;
+    }
+
+    #carta-robada-visual img,
+    #magia-visual img {
+        width: 120px;
+    }
+}
+
+
+
+
+
+
+@keyframes aparecerCarta {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* Ajustes generales para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+  #zona-acciones {
+    right: 10px;
+    width: 180px;
+  }
+
+  #carta-robada-visual img {
+    width: 140px;
+  }
+  .cartas-row {
+    gap: 15px;
+  }
+
+  .carta {
+    width: 95px;
+    height: 135px;
+  }
+
+  .label {
+    font-size: 22px;
+  }
+
+    body {
+        background-size: cover;
+        background-position: center;
+        overflow: auto;
+    }
+
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+        text-align: center;
+    }
+
+    #foto img {
+        height: 60px; /* Reducir tamaño del logo */
+    }
+
+    #nombre {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    #saldo-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #ajustes {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+
+    #contador-jugador,
+    #contador-crupier {
+        font-size: 18px;
+        text-align: center;
+    }
+
+	#consola {
+	    position: fixed;
+	    bottom: 40px;
+	    left: 0;
+	    width: 100vw;
+
+	    display: flex;
+	    flex-direction: column;   /* 👈 uno encima del otro */
+	    align-items: center;
+	    gap: 20px;                /* 👈 separación limpia */
+
+	    z-index: 50;
+	}
+
+
+    #apostar-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #apostar-container h1 {
+        font-size: 20px;
+    }
+
+    button, #jugar {
+		top: 100px;
+        width: 100%;
+        max-width: 200px;
+    }
+	.carta-seleccionable {
+	  outline: 3px solid gold;
+	  cursor: pointer;
+	  transform: scale(1.05);
+	}
+
+
+
+		.robo-carta img {
+			 width: 80px;
+    height: 120px;
+		  transition: transform 0.3s ease;
+		}
+
+		.robo-carta img:hover {
+		  transform: scale(1.1);
+		}
+		/* Botones de robar carta */
+
+
+
+
+
+
+}
+

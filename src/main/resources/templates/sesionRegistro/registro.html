@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/sesionRegistro/css/registro.css">
+    </head>
+    <body>
+        <header id="header">
+
+        </header>
+        
+        <div id="logo">
+            <div id="foto">
+                <img id="planeta" src="/sesionRegistro/assets/logoCarta.png" height="150" width="150">
+            </div>
+            <div id="nombre">
+                <img id="saturn" src="/sesionRegistro/assets/blackCard.png" width="110" height="20">
+            </div>
+        </div>
+        <div id="registro">
+           <form id="form">
+
+            <div id="dn">
+                <img src="/sesionRegistro/assets/persona.png" height="35px" width="35px">
+            
+                <input type="text" id="dni" name="dni" placeholder="DNI">
+            </div>
+
+            <br>
+            <div id="du">
+                <img src="/sesionRegistro/assets/persona.png" height="35px" width="35px">
+
+                <input type="text" id="usuario" placeholder="Usuario">
+            </div>
+
+            <br>
+
+            <div id="dap">
+                <img src="/sesionRegistro/assets/persona.png" height="35px" width="35px">
+
+                <input type="text" id="nombre_cliente" placeholder="Nombre">
+            </div>
+
+            <br>
+
+            <div id="dap">
+                <img src="/sesionRegistro/assets/persona.png" height="35px" width="35px">
+
+                <input type="text" id="apellidos" placeholder="Apellidos">
+            </div>
+            
+            <br>
+
+            <div id="de">
+                <img src="/sesionRegistro/assets/persona.png" alt="" height="35px" width="35px">
+
+                <input type="text" id="email" placeholder="E-Mail">
+            </div>
+            
+            <br>
+           
+            <div id="ded">
+                <img src="/sesionRegistro/assets/restriccion-de-edad.png" alt="" height="35px" width="35px">
+
+                <input type="date" id="fecha_nac" placeholder="Edad">
+            </div>
+            
+            <br>
+
+            <div id="dp">
+                <img src="/sesionRegistro/assets/descarga-removebg-preview (5).png" alt="" height="35px" width="35px">
+            
+                <input type="password" placeholder="contraseña" id="password">
+                <br>
+                </div>
+            <br>
+            <div id="dp2">
+                <img src="/sesionRegistro/assets/descarga-removebg-preview (5).png" alt="" height="35px" width="35px">
+                <input type="password" placeholder="Repita la contraseña" id="password2">
+            </div>
+
+            <br>
+            <div id="terms">
+                <input type="checkbox" id="checkTerms">
+                <label for="checkTerms">Acepto las <span id="termsLink" style="color:blue;">Condiciones de uso</span></label>
+            </div>
+            
+            <br>
+            
+            <div id="iniciar">
+                <button type="submit" value="Send Email" id="boton" style="color: white;">Registrarse</button>
+            </div>
+            
+				
+        </form>
+        </div>
+        <div id="modal3" class="modal">
+            <div class="contenido-modal">
+                <p>Es menor de edad</p>
+                <button id="close3">&times;</button>
+            </div>
+        </div>
+        <div id="modal2" class="modal">
+            <div class="contenido-modal">
+                <p>Las contraseñas no son iguales</p>
+                <button id="close2">&times;</button>
+            </div>
+        </div>
+        <div id="modalTerms" class="modal">
+            <div class="contenido-modal">
+                <p>Por favor, acepte las condiciones de uso para continuar.</p>
+                <button id="closeTerms">&times;</button>
+            </div>
+        </div>
+        
+        <div id="modal4" class="modal">
+            <div class="contenido-modal">
+                <p>EL apellido es incorrecto</p>
+                <button id="close4">&times;</button>
+            </div>
+        </div>
+        <div id="modal5" class="modal">
+            <div class="contenido-modal">
+                <p>El nombre es incorrecto</p>
+                <button id="close5">&times;</button>
+            </div>
+        </div>
+
+        <div id="modal6" class="modal">
+            <div class="contenido-modal">
+                <p>El DNI es incorrecto</p>
+                <button id="close6">&times;</button>
+            </div>
+        </div>
+        
+        <div id="modal1" class="modal">
+            <div class="contenido-modal">
+                <p>Usuarios registrados con éxito</p>
+                <button id="close">&times;</button>
+            </div>
+        </div>
+
+        <div id="modalMal" class="modal">
+            <div class="contenido-modal">
+                <p>Usuario ya existente</p>
+                <button id="close">&times;</button>
+            </div>
+        </div>
+        
+        <footer id="footer">
+
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <script src="/sesionRegistro/js/registro.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  
+        <script type="text/javascript">
+            emailjs.init('snl83u6FC2kgKOpFR')
+        </script>
+    </body>
+</html>
